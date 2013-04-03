@@ -1,0 +1,9 @@
+#!/bin/bash
+
+unzip ne_10m_admin_0_map_subunits.zip -d build
+
+ogr2ogr -f GeoJSON build/subunits.json build/ne_10m_admin_0_map_subunits.shp
+
+topojson --id-property su_a3 -p name=NAME -p name -o world.json build/subunits.json
+
+rm -rf ./build
