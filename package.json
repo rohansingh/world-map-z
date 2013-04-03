@@ -9,7 +9,8 @@
     "topojson": "0.0.39"
   },
   "scripts": {
-    "prepublish": "./compile_world_json"
+    "prepublish": "./compile_world_json",
+    "start": "node server.js"
   },
   "author": "Rohan Singh",
   "contributors": [
