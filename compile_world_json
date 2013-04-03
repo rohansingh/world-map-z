@@ -1,0 +1,11 @@
+#!/bin/bash
+
+unzip geodata/ne_10m_admin_0_map_subunits.zip -d geodata/build
+
+ogr2ogr -f GeoJSON geodata/build/subunits.json geodata/build/ne_10m_admin_0_map_subunits.shp
+
+node_modules/topojson/bin/topojson \
+    --id-property su_a3 -p name=NAME -p name \
+    -o geodata/world.json geodata/build/subunits.json
+
+rm -rf ./geodata/build
