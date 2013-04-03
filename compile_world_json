@@ -6,6 +6,7 @@ ogr2ogr -f GeoJSON geodata/build/subunits.json geodata/build/ne_10m_admin_0_map_
 
 node_modules/topojson/bin/topojson \
     --id-property su_a3 -p name=NAME -p name \
+    --simplify-proportion .2 \
     -o public/world.json geodata/build/subunits.json
 
 rm -rf ./geodata/build
